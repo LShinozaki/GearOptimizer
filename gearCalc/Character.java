@@ -7,12 +7,22 @@ import java.util.Scanner;
 
 public class Character {
 	private String name;
+	private StatTable baseStatTable;
 	private StatTable statTable;
 	private GearSet gearSet;
 	
 	public Character(String name) {
-		statTable = new StatTable(getBaseStats(name));
+		baseStatTable = new StatTable(getBaseStats(name));
+		statTable = new StatTable(this.baseStatTable.statTable);
 		this.name = name;
+		gearSet = new GearSet();
+	}
+	
+	public Character(Character character) {
+		this.statTable = character.statTable;
+		this.name = character.name;
+		this.baseStatTable = character.baseStatTable;
+		this.gearSet = new GearSet(character.gearSet);
 	}
 	
 	public void equip(GearSet gearSet) {
@@ -34,8 +44,8 @@ public class Character {
 	}
 	
 	public void unequip() {
-		this.gearSet = new GearSet();
-		statTable = new StatTable(getBaseStats(name));
+		gearSet = new GearSet();
+		statTable = new StatTable(baseStatTable.statTable);
 	}
 	
 	public HashMap<String,Integer> getBaseStats(String name){
@@ -77,7 +87,7 @@ public class Character {
 	}
 	
 	public int damage() {
-		return (int) ((((double)statTable.get("Atk%")/100 + 1)*(1 + ((double)statTable.get("CCh"))*(((double)statTable.get("CDmg")/100)-1)))); 
+		return (int) ((((double)statTable.get("Atk%")/100 + 1)*(1 + ((double)statTable.get("CCh")/100)*(((double)statTable.get("CDmg")/100)-1)))*100); 
 	}
 	
 	public int dps() {
@@ -95,6 +105,14 @@ public class Character {
 			return dps();
 		}
 		return statTable.get(stat);
+	}
+	
+	public StatTable getStatTable() {
+		return statTable;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	@Override

@@ -18,17 +18,20 @@ public class Main {
 		gs.equip(gear3);
 		gs.equip(gear4);
 		
-		System.out.println(gs);
-		System.out.println(gs.getStatTable());
-		
 		Character aColi = new Character("AColi");
 		System.out.println(aColi);
 		aColi.equip(gs);
 		System.out.println(aColi);
-		System.out.println(aColi.hasSet("HP"));
-		System.out.println(aColi.damage());
-		System.out.println(aColi.dps());
-		System.out.println(aColi.eHP());*/
+		aColi.unequip();
+		System.out.println(aColi);
+		
+		GearSet gs2 = new GearSet();
+		gs2.equip(gear1);
+		gs2.equip(gear2);
+		gs2.equip(gear3);
+		gs2.equip(gear4);
+		aColi.equip(gs2);
+		System.out.println(aColi);*/
 		
 		GearOptimizer go = new GearOptimizer("C:\\Users\\Lsmit\\eclipse-workspace\\gearCalc\\src\\opt.csv");
 		go.start();

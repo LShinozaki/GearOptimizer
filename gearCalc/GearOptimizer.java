@@ -43,8 +43,9 @@ public class GearOptimizer {
 			weightedStats.put(weights[i], Double.valueOf(weights[i+1]));
 		}
 		
+		GearSet gs = new GearSet();
+		
 		for(int i = 0; i < armory.weaponList.size(); i++) {
-			GearSet gs = new GearSet();
 			if(!(setList.contains(armory.weaponList.get(i).getSet()))) {
 				continue;
 			}
@@ -74,6 +75,7 @@ public class GearOptimizer {
 									continue;
 								}
 								gs.equip(armory.bootsList.get(n));
+								
 								character.unequip();
 								character.equip(gs);
 								if(parseBoolean(character, conditions)) {
@@ -87,11 +89,19 @@ public class GearOptimizer {
 				}
 			}
 		}
+		gs.equip(armory.weaponList.get(indices[0]));
+		gs.equip(armory.helmetList.get(indices[1]));
+		gs.equip(armory.chestList.get(indices[2]));
+		gs.equip(armory.necklaceList.get(indices[3]));
+		gs.equip(armory.ringList.get(indices[4]));
+		gs.equip(armory.bootsList.get(indices[5]));
+		System.out.println(gs);
 		if(best == null) {
 			return;
 		} else {
-			removeGear(indices);
+			System.out.println(best.getGearSet());
 			characterSet.add(best);
+			removeGear(indices);
 			best = null;
 		} 
 	}
@@ -123,17 +133,20 @@ public class GearOptimizer {
 	
 	public boolean isBestCharacter(Character character, HashMap<String, Double> weightedStats) {
 		if(best == null) {
-			best = character;
+			best = new Character(character);
+			System.out.println(best.getGearSet());
 			return true;
 		}
 		double weight = 0;
 		double sum = 0;
 		for(String stat : weightedStats.keySet()) {
-			weight += (character.get(stat) / best.get(stat)) * weightedStats.get(stat);
+			weight += ((double) character.get(stat) / best.get(stat)) * weightedStats.get(stat);
 			sum += weightedStats.get(stat);
 		}
+		System.out.println("weight: " + weight + " / sum: " + sum);
 		if(weight > sum) {
-			best = character;
+			best = new Character(character);
+			System.out.println(best.getGearSet());
 			return true;
 		}
 		return false;

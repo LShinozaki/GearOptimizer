@@ -15,6 +15,12 @@ public class GearSet {
 		setList = new ArrayList<>();
 	}
 	
+	public GearSet(GearSet gearSet) {
+		this.gearSet = gearSet.gearSet;
+		this.statTable = gearSet.statTable;
+		this.setList = gearSet.setList;
+	}
+	
 	public void equip(Gear gear) {
 		String[] helper = new String [] {"W", "H", "C", "N", "R", "B"};
 		String type = gear.getType();
