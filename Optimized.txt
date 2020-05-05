@@ -1,12 +1,25 @@
-MChloe
+Baiken
 ------
-Atk: 1246 | CCh/CDmg: 24/165 | Damage: 126 | DPS: 241
-HP/Def: 16060/1394 | EffHP: 90685 | Eff/Res 30/135 | Speed: 192
+Atk: 4199 | CCh/CDmg: 75/266 | Damage: 669 | DPS: 822
+HP/Def: 11964/770 | EffHP: 42671 | Eff/Res 33/0 | Speed: 123
 ------
-Weapon | iLvl: 88 | Atk%: 9 | Spd: 8 | Atk: 515 | CCh: 6 | HP%: 35 | Spd | 97
-Helmet | iLvl: 88 | Res: 33 | Eff: 6 | Spd: 7 | HP: 2765 | HP%: 13 | Def | 92
-Chest | iLvl: 85 | Def%: 13 | Res: 8 | Def: 300 | CDmg: 4 | HP%: 23 | Def | 67
-Necklace | iLvl: 85 | Res: 25 | CDmg: 4 | Eff: 12 | Atk: 34 | HP%: 60 | Spd | 58
-Ring | iLvl: 85 | Def%: 7 | Res: 60 | Spd: 7 | CCh: 3 | HP%: 20 | Spd | 64
-Boots | iLvl: 85 | Def%: 17 | Res: 9 | CDmg: 7 | Def: 61 | Spd: 40 | Spd | 47
-Average Gear Score: 70
+Weapon | 85 / 15 | Atk%: 16 | CDmg: 10 | Eff: 21 | Atk: 500 | CCh: 8 | Crit | 85
+Helmet | 85 / 15 | Atk%: 20 | CDmg: 12 | Eff: 4 | HP: 2700 | HP%: 11 | Atk | 68
+Chest | 70 / 15 | Def: 260 | CDmg: 10 | Spd: 4 | CCh: 11 | HP%: 19 | Atk | 78
+Necklace | 85 / 15 | Atk%: 12 | CDmg: 65 | HP: 304 | CCh: 8 | Atk: 40 | Atk | 34
+Ring | 88 / 6 | Def%: 8 | Atk%: 65 | CDmg: 7 | Eff: 8 | CCh: 13 | Dest | 93
+Boots | 71 / 15 | Atk%: 50 | CDmg: 12 | Spd: 6 | CCh: 12 | HP%: 13 | Atk | 80
+Average Gear Score: 73
+
+Weapon | 85 / 15 | Atk%: 16 | CDmg: 10 | Eff: 21 | Atk: 500 | CCh: 8 | Crit | 85 Baiken
+----------
+Helmet | 85 / 15 | Atk%: 20 | CDmg: 12 | Eff: 4 | HP: 2700 | HP%: 11 | Atk | 68 Baiken
+----------
+Chest | 70 / 15 | Def: 260 | CDmg: 10 | Spd: 4 | CCh: 11 | HP%: 19 | Atk | 78 Baiken
+----------
+Necklace | 85 / 15 | Atk%: 12 | CDmg: 65 | HP: 304 | CCh: 8 | Atk: 40 | Atk | 34 Baiken
+----------
+Ring | 88 / 6 | Def%: 8 | Atk%: 65 | CDmg: 7 | Eff: 8 | CCh: 13 | Dest | 93 Baiken
+----------
+Boots | 71 / 15 | Atk%: 50 | CDmg: 12 | Spd: 6 | CCh: 12 | HP%: 13 | Atk | 80 Baiken
+----------

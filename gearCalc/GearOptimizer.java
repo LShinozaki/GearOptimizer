@@ -19,7 +19,7 @@ public class GearOptimizer {
 		characterSet = new ArrayList<>();
 	}
 	
-	public void optimize(String optimizationString) {
+	public boolean optimize(String optimizationString) {
 		int[] indices = new int[6];
 		
 		String[] parts = optimizationString.split(",");
@@ -95,15 +95,15 @@ public class GearOptimizer {
 		gs.equip(armory.necklaceList.get(indices[3]));
 		gs.equip(armory.ringList.get(indices[4]));
 		gs.equip(armory.bootsList.get(indices[5]));
-		System.out.println(gs);
 		if(best == null) {
-			return;
+			return false;
 		} else {
-			System.out.println(best.getGearSet());
 			characterSet.add(best);
+			System.out.println(best);
 			removeGear(indices);
 			best = null;
-		} 
+			return true;
+		}
 	}
 	
 	public boolean parseBoolean(Character character, ArrayList<String> conditions) {
@@ -134,7 +134,6 @@ public class GearOptimizer {
 	public boolean isBestCharacter(Character character, HashMap<String, Double> weightedStats) {
 		if(best == null) {
 			best = new Character(character);
-			System.out.println(best.getGearSet());
 			return true;
 		}
 		double weight = 0;
@@ -143,10 +142,8 @@ public class GearOptimizer {
 			weight += ((double) character.get(stat) / best.get(stat)) * weightedStats.get(stat);
 			sum += weightedStats.get(stat);
 		}
-		System.out.println("weight: " + weight + " / sum: " + sum);
 		if(weight > sum) {
 			best = new Character(character);
-			System.out.println(best.getGearSet());
 			return true;
 		}
 		return false;
@@ -163,16 +160,28 @@ public class GearOptimizer {
 	
 	public void printToFile() throws FileNotFoundException {
 		try (PrintStream out = new PrintStream(new FileOutputStream("C:\\Users\\Lsmit\\eclipse-workspace\\gearCalc\\src\\Optimized.txt"))) {
-		    for(Character character : characterSet) {
-		    	out.println(character);
-		    }
+			for (Character character : characterSet) {
+				out.println(character);
+			}
+			out.println();
+			
+			String[] helper = new String [] {"W", "H", "C", "N", "R", "B"};
+			for(int i = 0; i < helper.length; i++) {
+				for (Character character : characterSet) {
+					out.println(character.getGear(helper[i]) + " " + character.getName());
+				}
+				out.println("----------");
+			}
 		    out.close();
 		}
 	}
 	
 	public void start() throws FileNotFoundException {
 		for (String string : armory.optimizationList) {
-			optimize(string);
+			if(!(optimize(string))) {
+				System.out.println("No gear combination found.");
+				continue;
+			}
 		}
 		printToFile();
 	}

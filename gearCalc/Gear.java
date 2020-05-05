@@ -7,6 +7,8 @@ public abstract class Gear {
 	private String set;
 	private int gearScore;
 	private int iLvl;
+	private int enhanceLvl;
+	
 	
 	public Gear(String csv) {
 		statTable = new HashMap<>();
@@ -20,6 +22,7 @@ public abstract class Gear {
 	public void generateGear(String csv) {
 		String[] split = csv.split(",");
 		iLvl = Integer.valueOf(split[1]);
+		enhanceLvl = Integer.valueOf(split[2]);
 		statTable.put(split[3], Integer.valueOf(split[4]));
 		String[] stats = new String[] {"HP%", "Def%", "Res", "Atk%", "CCh",	"CDmg", "Spd", "Eff", "HP", "Atk", "Def"};
 		for(int i = 5; i < 16; i++) {
@@ -49,6 +52,6 @@ public abstract class Gear {
 		for(String key : statTable.keySet()) {
 			stats += key + ": " + statTable.get(key) + " | ";
 		}
-		return "iLvl: " + iLvl + " | " + stats + set + " | " + gearScore;
+		return iLvl + " / " + enhanceLvl + " | " + stats + set + " | " + gearScore;
 	}
 }

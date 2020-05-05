@@ -1,1 +1,1 @@
-MChloe,Spd;Res;HP;Def,eHP > 90000;Spd > 190;Res > 99,eHP;1;Res;.75
+Baiken,Def;HP;Hit;Atk;Dest;Crit,Spd < 130,Atk;1;CDmg;1

@@ -107,6 +107,16 @@ public class Character {
 		return statTable.get(stat);
 	}
 	
+	public Gear getGear(String gearName) {
+		String[] helper = new String [] {"W", "H", "C", "N", "R", "B"};
+		for(int i = 0; i < helper.length; i++) {
+			if(helper[i].equals(gearName)) {
+				return gearSet.gearSet[i];
+			}
+		}
+		return gearSet.gearSet[0];
+	}
+	
 	public StatTable getStatTable() {
 		return statTable;
 	}
